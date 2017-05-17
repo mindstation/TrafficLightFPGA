@@ -1,0 +1,94 @@
+|Svetofors
+time_signal <= time_signal:time1.time_out
+global_clk50MHz => time_signal:time1.clk
+reset => time_signal:time1.reset
+reset => tri_light_svetofor:light_switch.reset
+red_ext <= tri_light_svetofor:light_switch.red
+yellow_ext <= tri_light_svetofor:light_switch.yellow
+green_ext <= tri_light_svetofor:light_switch.green
+
+
+|Svetofors|time_signal:time1
+clk => sec_kp[0].CLK
+clk => clk_number[0].CLK
+clk => clk_number[1].CLK
+clk => clk_number[2].CLK
+clk => clk_number[3].CLK
+clk => clk_number[4].CLK
+clk => clk_number[5].CLK
+clk => clk_number[6].CLK
+clk => clk_number[7].CLK
+clk => clk_number[8].CLK
+clk => clk_number[9].CLK
+clk => clk_number[10].CLK
+clk => clk_number[11].CLK
+clk => clk_number[12].CLK
+clk => clk_number[13].CLK
+clk => clk_number[14].CLK
+clk => clk_number[15].CLK
+clk => clk_number[16].CLK
+clk => clk_number[17].CLK
+clk => clk_number[18].CLK
+clk => clk_number[19].CLK
+clk => clk_number[20].CLK
+clk => clk_number[21].CLK
+clk => clk_number[22].CLK
+clk => clk_number[23].CLK
+clk => clk_number[24].CLK
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => clk_number.OUTPUTSELECT
+reset => sec_kp.OUTPUTSELECT
+time_out <= sec_kp[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Svetofors|tri_light_svetofor:light_switch
+time_signal => sel_color[0].CLK
+time_signal => sel_color[1].CLK
+time_signal => sel_color[2].CLK
+time_signal => timer[0].CLK
+time_signal => timer[1].CLK
+time_signal => timer[2].CLK
+time_signal => timer[3].CLK
+time_signal => timer[4].CLK
+time_signal => timer[5].CLK
+time_signal => timer[6].CLK
+time_signal => timer[7].CLK
+reset => sel_color[0].ACLR
+reset => sel_color[1].PRESET
+reset => sel_color[2].PRESET
+reset => timer[0].ACLR
+reset => timer[1].ACLR
+reset => timer[2].ACLR
+reset => timer[3].ACLR
+reset => timer[4].ACLR
+reset => timer[5].ACLR
+reset => timer[6].ACLR
+reset => timer[7].ACLR
+red <= sel_color[0].DB_MAX_OUTPUT_PORT_TYPE
+yellow <= sel_color[1].DB_MAX_OUTPUT_PORT_TYPE
+green <= sel_color[2].DB_MAX_OUTPUT_PORT_TYPE
+
+

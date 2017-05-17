@@ -55,15 +55,8 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to yellow
 set_location_assignment PIN_E16 -to global_clk50MHz
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to global_clk50MHz
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to green
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to red
-set_location_assignment PIN_B10 -to green
-set_location_assignment PIN_D12 -to red
-set_location_assignment PIN_C11 -to yellow
-set_global_assignment -name SDC_FILE svetofors.sdc
 set_global_assignment -name VERILOG_FILE time_signal.v
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to time_signal
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to reset
