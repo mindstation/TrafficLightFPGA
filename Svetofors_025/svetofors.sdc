@@ -1,0 +1,1 @@
+create_clock -name global_50MHz_clk -period 20.000 [get_ports {global_clk50MHz}]
