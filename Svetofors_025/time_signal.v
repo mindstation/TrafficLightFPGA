@@ -1,5 +1,5 @@
-module time_signal ( //Этот модуль описывает генератор сигнала времени, с периодом в пол-секунды.
-							//This module make a signal with half-second period of time.
+module time_signal ( //Этот модуль описывает генератор сигнала времени, период времени пол-секунды.
+							//This module make a signal with a half-second period of time.
 		input wire clk,
 		input wire reset,
 		output wire time_out
@@ -17,7 +17,7 @@ module time_signal ( //Этот модуль описывает генерато
 	always @(posedge clk) //Источник тактового сигнала установлен на плате, частота 50МГц.
 	begin
 		if (!reset) //Кнопка сброса также уже смонтирована на CoreEP4CE10, инверсная логика.
-			begin
+			begin					//A zero level is active.
 				clk_number <= 25'd0;
 				sec_kp <= 1'd0; //Сброс регистров в начальное (нулевое) состояние.
 									 //Неблокирующее присваивание "<=". Присвоение регистров произойдет одновременно, параллельно.
@@ -29,13 +29,15 @@ module time_signal ( //Этот модуль описывает генерато
 			begin
 				if (clk_number <= 25'd25000000) 		//Проверка значения счетчика тактов, если не отсчитано 25 миллионов,
 					clk_number <= clk_number + 25'd1; //то продолжить отсчет
-				else
-					clk_number <= 25'd0; //иначе счетчик заполнен, сбросить его в ноль.
+				else				//A half-second is gone.
+					clk_number <= 25'd0; //иначе счетчик заполнен, сбросить его в ноль.										
 	
 				if (clk_number > 25'd12500000) //Период сигнала здесь пол-секунды.
 					sec_kp <= 1'd1; //Четверть секунды удерживается единица.
+									//A quarter-second to do high output.
 				else
 					sec_kp <= 1'd0; //Вторую четверть - ноль.
+									//Next quarter to do low output.
 			end
 			
 	end	
